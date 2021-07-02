@@ -23,7 +23,7 @@ router.get("/api/workouts", (req, res) => {
 
 
 // put for same route fetch on api.js
-router.put("api/workouts/:id", ({body, params }, res) => {
+router.put("/api/workouts/:id", ({body, params }, res) => {
     Workout.findByIdAndUpdate(
         params.id,
         {
@@ -43,7 +43,7 @@ router.put("api/workouts/:id", ({body, params }, res) => {
 })
 
 // post for the create method in api.js
-router.post("api/workouts", (req, res) => {
+router.post("/api/workouts", (req, res) => {
     Workout.create(req.body)
         .then(data => {
             res.json(data);
@@ -55,7 +55,7 @@ router.post("api/workouts", (req, res) => {
 
 
 // get with sort and limit to only recieve last 7 per readme instructions
-router.get("api/workouts/range", (req, res) => {
+router.get("/api/workouts/range", (req, res) => {
     Workout.aggregate([
         {
             $addfield: {
